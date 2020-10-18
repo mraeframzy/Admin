@@ -1,0 +1,239 @@
+<div class="container">
+    <div flex fxLayout="row" fxLayoutAlign="space-around" class="big_Container">
+        <div flex fxLayout="row" fxFlex="90">
+            <h2 class="uppder_case">User Details</h2>
+        </div>
+        <div flex fxLayout="row" fxFlex="10" class="dialog_confirm_content_container">
+            <mat-icon id="close-icon" (click)="closeDialog()" class="pos_absolute_top">close</mat-icon>
+        </div>
+    </div>
+    <H4 class="text_align_center">General Data</H4>
+    <form [formGroup]="service.FG_User_Details" class="Medium_Container">
+        <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+            <label class="General_label" fxFlex="40" fxLayoutAlign="end center" fxLayoutAlign.lt-sm="start center">User
+                Id</label>
+            <mat-form-field fxFlex="58" fxLayoutAlign="start start" appearance="outline" color="accent"
+                floatLabel="always">
+                <input matInput formControlName="$Id">
+            </mat-form-field>
+        </div>
+        <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+            <label class="General_label" fxFlex="40" fxLayoutAlign="end center"
+                fxLayoutAlign.lt-sm="start center">Username</label>
+            <mat-form-field fxFlex="58" fxLayoutAlign="start start" appearance="outline" color="accent"
+                floatLabel="always">
+                <input matInput formControlName="UserName">
+                <mat-error *ngIf="service.FG_User_Details.controls['UserName'].errors?.required">This field is Mandatory
+                </mat-error>
+                <mat-error *ngIf="service.FG_User_Details.controls['UserName'].errors?.maxlength">Maximum length is
+                    25character</mat-error>
+            </mat-form-field>
+        </div>
+        <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+            <label class="General_label" fxFlex="40" fxLayoutAlign="end center" fxLayoutAlign.lt-sm="start center">First
+                Name</label>
+            <mat-form-field fxFlex="58" fxLayoutAlign="start start" appearance="outline" color="accent"
+                floatLabel="always">
+                <input matInput formControlName="User_First_Name">
+                <mat-error *ngIf="service.FG_User_Details.controls['User_First_Name'].errors?.required">This field is
+                    Mandatory
+                </mat-error>
+                <mat-error *ngIf="service.FG_User_Details.controls['User_First_Name'].errors?.maxlength">Maximum length
+                    is
+                    25character</mat-error>
+            </mat-form-field>
+        </div>
+        <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+            <label class="General_label" fxFlex="40" fxLayoutAlign="end center" fxLayoutAlign.lt-sm="start center">Last
+                Name</label>
+            <mat-form-field fxFlex="58" fxLayoutAlign="start start" appearance="outline" color="accent"
+                floatLabel="always">
+                <input matInput formControlName="User_SurName">
+                <mat-error *ngIf="service.FG_User_Details.controls['User_SurName'].errors?.required">This field is
+                    Mandatory
+                </mat-error>
+                <mat-error *ngIf="service.FG_User_Details.controls['User_SurName'].errors?.maxlength">Maximum length is
+                    25character</mat-error>
+            </mat-form-field>
+        </div>
+        <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+            <label class="General_label" fxFlex="40" fxLayoutAlign="end center"
+                fxLayoutAlign.lt-sm="start center">Mobile Number</label>
+            <mat-form-field fxFlex="58" fxLayoutAlign="start start" appearance="outline" color="accent"
+                floatLabel="always">
+                <input matInput formControlName="PhoneNumber">
+                <mat-error *ngIf="service.FG_User_Details.controls['PhoneNumber'].errors?.maxlength">Maximum length is
+                    25character</mat-error>
+            </mat-form-field>
+        </div>
+        <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+            <label class="General_label" fxFlex="40" fxLayoutAlign="end center" fxLayoutAlign.lt-sm="start center">Email
+                Address</label>
+            <mat-form-field fxFlex="58" fxLayoutAlign="start start" appearance="outline" color="accent"
+                floatLabel="always">
+                <input matInput formControlName="Email">
+                <mat-error *ngIf="service.FG_User_Details.controls['Email'].errors?.required">This field is Mandatory
+                </mat-error>
+                <mat-error *ngIf="service.FG_User_Details.controls['Email'].errors?.maxlength">Maximum length is
+                    50character
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="put_border put_padding put_margin">
+        <H4 class="text_align_center">User Status</H4>
+        <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+            <label class="General_label" fxFlex="40" fxLayoutAlign="end center"
+                fxLayoutAlign.lt-sm="start center">User Status</label>
+            <select fxFlex="58" fxLayoutAlign="start center" formControlName="User_Status" class="Drop_Down_List">
+                <option *ngFor="let item of user_statuses" value="{{item.user_Status_ID}}">{{item.user_Status_Name}}
+                </option>
+            </select>
+        </div>
+        <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+            <label class="General_label" fxFlex="40" fxLayoutAlign="end center" fxLayoutAlign.lt-sm="start center">User
+                Updater</label>
+            <mat-form-field fxFlex="58" fxLayoutAlign="start start" appearance="outline" color="accent"
+                floatLabel="always">
+                <input matInput formControlName="User_Updater">
+            </mat-form-field>
+        </div>
+        <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+            <label class="General_label" fxFlex="40" fxLayoutAlign="end center" fxLayoutAlign.lt-sm="start center">User
+                Update Time</label>
+            <mat-form-field fxFlex="58" fxLayoutAlign="start start" appearance="outline" color="accent"
+                floatLabel="always">
+                <input matInput formControlName="User_Update_Time">
+            </mat-form-field>
+        </div>
+        <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+            <label class="General_label" fxFlex="40" fxLayoutAlign="end center" fxLayoutAlign.lt-sm="start center">Job
+                Title</label>
+            <select fxFlex="58" fxLayoutAlign="start center" formControlName="User_Job_Title" class="Drop_Down_List">
+                <option *ngFor="let item of job_titles" value="{{item.job_Title_Id}}">{{item.job_Title_Name}}</option>
+            </select>
+        </div>
+        <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+            <label class="General_label" fxFlex="40" fxLayoutAlign="end center" fxLayoutAlign.lt-sm="start center">If
+                User Locked</label>
+            <mat-checkbox class="check_box_style" fxFlex="58" fxLayoutAlign="start center"
+                formControlName="User_is_locked"></mat-checkbox>
+        </div>
+    </div>
+        <br />
+        
+        <H4 class="text_align_center">Auxiliary Date</H4>
+        <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+            <label class="General_label" fxFlex="40" fxLayoutAlign="end center"
+                fxLayoutAlign.lt-sm="start center">Number of Points</label>
+            <mat-form-field fxFlex="58" fxLayoutAlign="start start" appearance="outline" color="accent"
+                floatLabel="always">
+                <input matInput formControlName="User_Points">
+            </mat-form-field>
+        </div>
+        <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+            <label class="General_label" fxFlex="40" fxLayoutAlign="end center" fxLayoutAlign.lt-sm="start center">Last
+                Visit Date</label>
+            <mat-form-field fxFlex="58" fxLayoutAlign="start start" appearance="outline" color="accent"
+                floatLabel="always">
+                <input matInput formControlName="User_Last_Visit_Date">
+            </mat-form-field>
+        </div>
+        <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+            <label class="General_label" fxFlex="40" fxLayoutAlign="end center"
+                fxLayoutAlign.lt-sm="start center">Number of User Interactions</label>
+            <mat-form-field fxFlex="58" fxLayoutAlign="start start" appearance="outline" color="accent"
+                floatLabel="always">
+                <input matInput formControlName="User_Interaction_Count">
+            </mat-form-field>
+        </div>
+        <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+            <label class="General_label" fxFlex="40" fxLayoutAlign="end center"
+                fxLayoutAlign.lt-sm="start center">Number of Continuous Visit day Counter</label>
+            <mat-form-field fxFlex="58" fxLayoutAlign="start start" appearance="outline" color="accent"
+                floatLabel="always">
+                <input matInput formControlName="User_Continuous_Login_Count">
+            </mat-form-field>
+        </div>
+        <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+            <label class="General_label" fxFlex="40" fxLayoutAlign="end center"
+                fxLayoutAlign.lt-sm="start center">Number of days visiting the site</label>
+            <mat-form-field fxFlex="58" fxLayoutAlign="start start" appearance="outline" color="accent"
+                floatLabel="always">
+                <input matInput formControlName="User_Day_Count">
+            </mat-form-field>
+        </div>
+        <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+            <label class="General_label" fxFlex="40" fxLayoutAlign="end center" fxLayoutAlign.lt-sm="start center">Last
+                Ban Date</label>
+            <mat-form-field fxFlex="58" fxLayoutAlign="start start" appearance="outline" color="accent"
+                floatLabel="always">
+                <input matInput formControlName="User_Ban_Date">
+            </mat-form-field>
+        </div>
+        <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+            <label class="General_label" fxFlex="40" fxLayoutAlign="end center" fxLayoutAlign.lt-sm="start center">Ban
+                Period by day</label>
+            <mat-form-field fxFlex="58" fxLayoutAlign="start start" appearance="outline" color="accent"
+                floatLabel="always">
+                <input matInput formControlName="User_Ban_Period">
+            </mat-form-field>
+        </div>
+        <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+            <label class="General_label" fxFlex="40" fxLayoutAlign="end center" fxLayoutAlign.lt-sm="start center">Hot
+                Ban Count</label>
+            <mat-form-field fxFlex="58" fxLayoutAlign="start start" appearance="outline" color="accent"
+                floatLabel="always">
+                <input matInput formControlName="User_Hot_Ban_Count">
+            </mat-form-field>
+        </div>
+        <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+            <label class="General_label" fxFlex="40" fxLayoutAlign="end center" fxLayoutAlign.lt-sm="start center">Ban
+                Count</label>
+            <mat-form-field fxFlex="58" fxLayoutAlign="start start" appearance="outline" color="accent"
+                floatLabel="always">
+                <input matInput formControlName="User_Ban_Count">
+            </mat-form-field>
+        </div>
+        <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+            <label class="General_label" fxFlex="40" fxLayoutAlign="end center"
+                fxLayoutAlign.lt-sm="start center">Gender</label>
+            <mat-radio-group fxFlex="58" fxLayoutAlign="start center" aria-label="Select an option"
+                formControlName="User_Gender" class="radio_buttons">
+                <mat-radio-button [value]=false>Female</mat-radio-button>
+                <mat-radio-button [value]=true>Male</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+            <label class="General_label" fxFlex="40" fxLayoutAlign="end center"
+                fxLayoutAlign.lt-sm="start center">Birthday</label>
+            <mat-form-field fxFlex="58" fxLayoutAlign="start start" appearance="outline" color="accent"
+                floatLabel="always">
+                <input matInput formControlName="User_Birthday">
+            </mat-form-field>
+        </div>
+        <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+            <label class="General_label" fxFlex="40" fxLayoutAlign="end center" fxLayoutAlign.lt-sm="start center">If
+                User Nile Zzone Fashion Facebook Page Like</label>
+            <mat-checkbox class="check_box_style" fxFlex="58" fxLayoutAlign="start center"
+                formControlName="User_NZF_Page_Like"></mat-checkbox>
+        </div>
+        <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+            <label class="General_label" fxFlex="40" fxLayoutAlign="end center" fxLayoutAlign.lt-sm="start center">If
+                User Nile Zzone Facebook Page Like</label>
+            <mat-checkbox class="check_box_style" fxFlex="58" fxLayoutAlign="start center"
+                formControlName="User_NZ_Page_Like"></mat-checkbox>
+        </div>
+        <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+            <label class="General_label" fxFlex="40" fxLayoutAlign="end center" fxLayoutAlign.lt-sm="start center">If
+                User Nile Zzone Fashion Facebook Page Share</label>
+            <mat-checkbox class="check_box_style" fxFlex="58" fxLayoutAlign="start center"
+                formControlName="User_NZF_Page_Share"></mat-checkbox>
+        </div>
+        <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+            <label class="General_label" fxFlex="40" fxLayoutAlign="end center" fxLayoutAlign.lt-sm="start center">If
+                User Nile Zzone Facebook Page Share</label>
+            <mat-checkbox class="check_box_style" fxFlex="58" fxLayoutAlign="start center"
+                formControlName="User_NZ_Page_Share"></mat-checkbox>
+        </div>
+    </form>
+</div>

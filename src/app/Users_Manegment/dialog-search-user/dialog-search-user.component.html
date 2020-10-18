@@ -1,0 +1,82 @@
+<div flex fxLayout="row" fxLayoutAlign="space-around" class="big_Container">
+    <div flex fxLayout="row" fxFlex="90">
+        <h2 class="uppder_case">Please select a User</h2>
+    </div>
+    <div flex fxLayout="row" fxFlex="10" class="dialog_confirm_content_container">
+        <mat-icon id="close-icon" (click)="closeDialog()">close</mat-icon>
+        <!-- <mat-icon id="close-icon" (click)="setuser()">close</mat-icon> -->
+    </div>
+</div>
+<h4>Please Enter <strong>"Exact"</strong> Phone Number or UserNaem or Id or Email or First Name or Sur Name </h4>
+<div flex fxLayout="row" fxLayoutAlign="space-around" class="big_Container">
+    <div flex fxLayout="row" fxFlex="100" fxLayoutAlign="start center" class="search-div">
+        <mat-form-field class="search-form-field" floatLabel="never">
+            <input (keyup.enter)="search_users()" matInput [(ngModel)]="searchKey_database" placeholder="Search" autocomplete="off">
+            <button mat-button matSuffix mat-icon-button arial-label="Clear" *ngIf="searchKey_database"
+                (click)="search_users()" class="search_icon">
+                <mat-icon>search</mat-icon>
+            </button>
+            <button mat-button matSuffix mat-icon-button arial-label="Clear" *ngIf="searchKey_database"
+                (click)="onSearchClear_database()" class="clear_icon">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
+</div>
+<br />
+<div class="big_Container mat-elevation-z8" flex fxLayout="row" fxLayoutAlign="space-around">
+    <div flex fxFlex="88">
+        <table mat-table [dataSource]="listData">
+            <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef>User Id</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.id}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="user_First_Name">
+                <mat-header-cell *matHeaderCellDef>First Name</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.user_First_Name}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="user_SurName">
+                <mat-header-cell *matHeaderCellDef>Sur Name</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.user_SurName}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="userName">
+                <mat-header-cell *matHeaderCellDef>UserName</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.userName}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="phoneNumber">
+                <mat-header-cell *matHeaderCellDef>Phone Number</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.phoneNumber}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="email">
+                <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.email}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="user_Job_Title_name">
+                <mat-header-cell *matHeaderCellDef>Job Title</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.user_Job_Title_name}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="loading">
+                <mat-footer-cell *matFooterCellDef colspan="6">loading data..</mat-footer-cell>
+            </ng-container>
+            <ng-container matColumnDef="noData">
+                <mat-footer-cell *matFooterCellDef colspan="6">No Data.</mat-footer-cell>
+            </ng-container>
+            <ng-container matColumnDef="not_loaded">
+                <mat-footer-cell *matFooterCellDef colspan="6">Find Users</mat-footer-cell>
+            </ng-container>
+
+            <!-- template -->
+            <mat-header-row *matHeaderRowDef="displayedcolumns"></mat-header-row>
+            <mat-row *matRowDef="let row;columns:displayedcolumns" class="grey_hover" (click)="setuser(row)"></mat-row>
+            <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{hide:!(listData == null && try_load == true)}">
+            </mat-footer-row>
+            <mat-footer-row *matFooterRowDef="['noData']"
+                [ngClass]="{hide:!(listData!=null && listData.data.length==0)}">
+            </mat-footer-row>
+            <mat-footer-row *matFooterRowDef="['not_loaded']" [ngClass]="{hide:try_load == true}"></mat-footer-row>
+
+            <!-- template -->
+        </table>
+    </div>
+</div>

@@ -1,0 +1,205 @@
+<div class="container">
+    <H2>Create Company</H2>
+    <form [formGroup]="service.formGroup_Create_Company" class="Medium_Container">
+        <div class="put_border put_padding put_margin">
+            <H4 class="text_align_center">Company Data</H4>
+
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Company Name</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent" floatLabel="always" 
+                    [class.check_company_name_ok]="!service.check_company_name_bool && (this.service.formGroup_Create_Company.controls['Company_Name'].dirty && this.service.formGroup_Create_Company.controls['Company_Name'].touched)">
+                    <input matInput formControlName="Company_Name" (focusout)="service.check_company_name()">
+                    <mat-error *ngIf="service.formGroup_Create_Company.controls['Company_Name'].errors?.required">This
+                        field is
+                        Mandatory
+                    </mat-error>
+                    <mat-error *ngIf="service.formGroup_Create_Company.controls['Company_Name'].errors?.maxlength">
+                        Maximum
+                        length is
+                        50character</mat-error>
+                        <mat-error *ngIf="service.formGroup_Create_Company.controls['Company_Name'].errors?.Company_Name_check">
+                            Company Name already used</mat-error>
+                </mat-form-field>                
+            </div>
+            <div class="green_color margin_bottom" flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" *ngIf="!service.check_company_name_bool && (this.service.formGroup_Create_Company.controls['Company_Name'].dirty && this.service.formGroup_Create_Company.controls['Company_Name'].touched)">
+                <div fxFlex="30" fxLayoutAlign="end center"></div>
+                <div fxFlex="65" fxLayoutAlign="start center">
+                    <mat-icon class="">check_circle_outline</mat-icon>
+                    <p fxLayoutAlign="center center" class="remove_margin" >Company Name is availiable</p> 
+                </div>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Copmany Name Arabic</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent" floatLabel="always"
+                    [class.check_company_name_ok]="!service.check_company_name_arabic_bool && (this.service.formGroup_Create_Company.controls['Company_Name_Arabic'].dirty && this.service.formGroup_Create_Company.controls['Company_Name_Arabic'].touched)">
+                    <input matInput formControlName="Company_Name_Arabic" (focusout)="service.check_company_name_arabic()">
+                    <mat-error
+                        *ngIf="service.formGroup_Create_Company.controls['Company_Name_Arabic'].errors?.required">This
+                        field is
+                        Mandatory</mat-error>
+                    <mat-error
+                        *ngIf="service.formGroup_Create_Company.controls['Company_Name_Arabic'].errors?.maxlength">
+                        Maximum length is
+                        50character</mat-error>
+                        <mat-error *ngIf="service.formGroup_Create_Company.controls['Company_Name_Arabic'].errors?.Company_Name_check">
+                            Company Arabic Name already used</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="green_color margin_bottom" flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" *ngIf="!service.check_company_name_arabic_bool && (this.service.formGroup_Create_Company.controls['Company_Name_Arabic'].dirty && this.service.formGroup_Create_Company.controls['Company_Name_Arabic'].touched)">
+                <div fxFlex="30" fxLayoutAlign="end center"></div>
+                <div fxFlex="65" fxLayoutAlign="start center">
+                    <mat-icon class="">check_circle_outline</mat-icon>
+                    <p fxLayoutAlign="center center" class="remove_margin" >Company Name Arabic is availiable</p> 
+                </div>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Company Description</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Company_Desc">
+                    <mat-error *ngIf="service.formGroup_Create_Company.controls['Company_Desc'].errors?.required">This
+                        field is
+                        Mandatory
+                    </mat-error>
+                    <mat-error *ngIf="service.formGroup_Create_Company.controls['Company_Desc'].errors?.maxlength">
+                        Maximum
+                        length is
+                        300character</mat-error>
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Copmany Description Arabic</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Company_Desc_Arabic">
+                    <mat-error *ngIf="service.formGroup_Create_Company.controls['Company_Desc_Arabic'].errors?.required">This
+                        field is
+                        Mandatory
+                    </mat-error>
+                    <mat-error
+                        *ngIf="service.formGroup_Create_Company.controls['Company_Desc_Arabic'].errors?.maxlength">
+                        Maximum length is
+                        300character</mat-error>
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Primary Phone</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Company_Phone_1">
+                    <mat-error *ngIf="service.formGroup_Create_Company.controls['Company_Phone_1'].errors?.required">
+                        This field
+                        is Mandatory
+                    </mat-error>
+                    <mat-error *ngIf="service.formGroup_Create_Company.controls['Company_Phone_1'].errors?.maxlength">
+                        Maximum
+                        length is
+                        25character</mat-error>
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none" class="">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Second Phone</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Company_Phone_2">
+                    <mat-error *ngIf="service.formGroup_Create_Company.controls['Company_Phone_2'].errors?.maxlength">
+                        Maximum
+                        length is
+                        25character</mat-error>
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none" class="">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Third
+                    Phone</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Company_Phone_3">
+                    <mat-error *ngIf="service.formGroup_Create_Company.controls['Company_Phone_3'].errors?.maxlength">
+                        Maximum
+                        length is
+                        25character</mat-error>
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none" class="">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Fourth Phone</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Company_Phone_4">
+                    <mat-error *ngIf="service.formGroup_Create_Company.controls['Company_Phone_4'].errors?.maxlength">
+                        Maximum
+                        length is
+                        25character</mat-error>
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none" class="">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Company Note</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Company_Note">
+                    <mat-error *ngIf="service.formGroup_Create_Company.controls['Company_Note'].errors?.maxlength">
+                        Maximum length is 300character</mat-error>
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none" class="">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Company Admin Note</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Company_Web_Admin_Note">
+                    <mat-error
+                        *ngIf="service.formGroup_Create_Company.controls['Company_Web_Admin_Note'].errors?.maxlength">
+                        Maximum length is 300character</mat-error>
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Company Owner</label>
+                    <div fxFlex="65" fxLayoutAlign="start center">
+                        <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                        floatLabel="always" (click)="openUserDetails(service.formGroup_Create_Company)">
+                        <mat-select formControlName="Company_Owner" disabled>
+                            <mat-option  [value]="owner.id" *ngFor="let owner of owners">{{owner.name}}</mat-option>
+                        </mat-select>
+                        <mat-error
+                            *ngIf="service.formGroup_Create_Company.controls['Company_Owner'].errors">
+                            Please Select Company Owner</mat-error>
+                    </mat-form-field>
+                <button fxFlex="10" mat-icon-button (click)="openUserDialog()" class="edit_button">
+                    <mat-icon class="clear_icon">search</mat-icon>
+                </button>
+            </div></div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">If
+                    Company has Location</label>
+                <mat-checkbox fxFlex="65" fxLayoutAlign="start center" formControlName="Company_Has_Location"
+                    class="check_box_style"></mat-checkbox>
+            </div>
+            <div flex fxLayout="row" fxLayoutAlign="space-around" class="big_Container put_margin">
+                <div>
+                    <button fxLayoutAlign="start end" class="btn btn-primary" (click)="create_company(service.formGroup_Create_Company)">Create
+                        Company</button>
+                </div>
+                <div flex fxLayout="row" fxLayoutAlign="end end">
+                    <button routerLink="/main/employee/o_companies_manegment" routerLinkActive='active' class="btn btn-secondary">Back</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

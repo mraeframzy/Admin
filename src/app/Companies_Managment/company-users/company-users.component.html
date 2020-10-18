@@ -1,0 +1,116 @@
+<div class="container" flex fxLayout="column">
+    <H2>Company Members and privileges</H2>
+    <form [formGroup]="service.FG_Company_Label" class="Medium_Container">
+        <div class="put_border put_padding put_margin">
+            <H4 class="text_align_center">Company Basic Data</H4>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Company Id</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="$Company_Id">
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Company Name</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Company_Name">
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Copmany Name Arabic</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Company_Name_Arabic">
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+    <div class="Medium_Container">
+        <div class="put_border put_padding put_margin">
+            <H4 class="text_align_center">Company Members list</H4>
+            <div class="big_Container mat-elevation-z8" flex fxLayout="row" fxLayoutAlign="space-around">
+                <div flex fxFlex="100">
+                    <table mat-table [dataSource]="listData" matSort>
+                        <ng-container matColumnDef="user_Related_Branch_Id">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header>Company/User Id</mat-header-cell>
+                            <mat-cell *matCellDef="let element">{{element.user_Related_Branch_Id}}</mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="branch_name">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header>Branch Name</mat-header-cell>
+                            <mat-cell *matCellDef="let element">{{element.branch_name}}</mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="user_username">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header>Member username</mat-header-cell>
+                            <mat-cell *matCellDef="let element">{{element.user_username}}</mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="user_Related_Branch_Is_Company_Manager">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header>Is Manager</mat-header-cell>
+                            <mat-cell *matCellDef="let element">{{element.user_Related_Branch_Is_Company_Manager}}
+                            </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="user_Related_Branch_Can_add_company_users">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header>Can add members</mat-header-cell>
+                            <mat-cell *matCellDef="let element">{{element.user_Related_Branch_Can_add_company_users}}
+                            </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="user_Related_Branch_Is_Valid">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header>Is approved by Web Admin
+                            </mat-header-cell>
+                            <mat-cell *matCellDef="let element">{{element.user_Related_Branch_Is_Valid}}</mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="actions">
+                            <mat-header-cell *matHeaderCellDef>
+                                <mat-form-field class="search-form-field" floatLabel="never">
+                                    <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off"
+                                        (keyup)="applyFilter()">
+                                    <button mat-button matSuffix mat-icon-button arial-label="Clear" *ngIf="searchKey"
+                                        (click)="onSearchClear()" class="clear_icon">
+                                        <mat-icon>close</mat-icon>
+                                    </button>
+                                </mat-form-field>
+                            </mat-header-cell>
+                            <mat-cell *matCellDef="let row">
+                                <button mat-icon-button (click)="onEdit(row)" class="edit_button">
+                                    <mat-icon class="edit_icon">launch</mat-icon>
+                                </button>
+                            </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="loading">
+                            <mat-footer-cell *matFooterCellDef colspan="6">loading data..</mat-footer-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="noData">
+                            <mat-footer-cell *matFooterCellDef colspan="6">No Data.</mat-footer-cell>
+                        </ng-container>
+
+                        <!-- template -->
+                        <mat-header-row *matHeaderRowDef="displayedcolumns"></mat-header-row>
+                        <mat-row *matRowDef="let row;columns:displayedcolumns"></mat-row>
+                        <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{hide:!(listData == null)}">
+                        </mat-footer-row>
+                        <mat-footer-row *matFooterRowDef="['noData']"
+                            [ngClass]="{hide:!(listData!=null && listData.data.length==0)}">
+                        </mat-footer-row>
+                        <!-- template -->
+                    </table>
+                    <mat-paginator [pageSizeOptions]="[10,25,50]" [pageSize]="10"></mat-paginator>
+                </div>
+            </div>
+
+<br />
+            <div flex fxLayout="row" fxLayoutAlign="space-between" class="put_padding Medium_Container">
+                <button class="btn btn-primary" routerLink="{{'/main/employee/company_users_add/' + Company_Id}}"
+                    routerLinkActive='active'>Add Branch</button>
+                <button class="btn btn-secondary" routerLink="{{'/main/employee/edit_company/' + Company_Id}}"
+                    routerLinkActive='active'>Back</button>
+            </div>
+        </div>
+    </div>
+</div>

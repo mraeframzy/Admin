@@ -1,0 +1,146 @@
+<div class="container" flex fxLayout="column">
+    <H2>Company Members and privileges</H2>
+    <form [formGroup]="service.FG_User_Related_Branch_display" class="Medium_Container">
+        <div class="put_border put_padding put_margin">
+            <H4 class="text_align_center">Company Basic Data</H4>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Company Id</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="company_id">
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Company Name</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="company_name">
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Copmany Name Arabic</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="company_name_arabic">
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="Medium_Container">
+            <div class="put_border put_padding put_margin">
+                <H4 class="text_align_center">Member company/branch relationship</H4>
+                <div class="Medium_Container">
+
+                    <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+                        <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                            fxLayoutAlign.lt-sm="start center">Membership Id</label>
+                        <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                            floatLabel="always">
+                            <input matInput formControlName="$User_Related_Branch_Id">
+                        </mat-form-field>
+                    </div>
+
+                    <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+                        <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                            fxLayoutAlign.lt-sm="start center">Member Name</label>
+                        <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                            floatLabel="always">
+                            <input matInput formControlName="User_Related_Branch_Related_User">
+                        </mat-form-field>
+                    </div>
+
+                    <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+                        <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                            fxLayoutAlign.lt-sm="start center">Branch Name</label>
+                        <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                            floatLabel="always">
+                            <input matInput formControlName="User_Related_Branch_Related_Branch">
+                        </mat-form-field>
+                    </div>
+                    
+                    <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                        class="required">
+                        <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                            fxLayoutAlign.lt-sm="start center">Has Company Manager Privilege</label>
+                        <mat-checkbox fxFlex="65" fxLayoutAlign="start center"
+                            formControlName="User_Related_Branch_Is_Company_Manager" class="check_box_style">
+                        </mat-checkbox>
+                    </div>
+
+                    <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                        class="required">
+                        <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                            fxLayoutAlign.lt-sm="start center">Can user add Members to the company</label>
+                        <mat-checkbox fxFlex="65" fxLayoutAlign="start center"
+                            formControlName="User_Related_Branch_Can_add_company_users" class="check_box_style">
+                        </mat-checkbox>
+                    </div>
+
+                    <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+                        <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                            fxLayoutAlign.lt-sm="start center">Web Admin comment</label>
+                        <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                            floatLabel="always">
+                            <input matInput formControlName="User_Related_Branch_Web_Admin_Comment">
+                            <mat-error
+                                *ngIf="service.FG_User_Related_Branch_display.controls['User_Related_Branch_Web_Admin_Comment'].errors?.maxlength">
+                                Maximum length is 300character</mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                        class="required">
+                        <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                            fxLayoutAlign.lt-sm="start center">Is Membership approved by web admin</label>
+                        <mat-checkbox fxFlex="65" fxLayoutAlign="start center"
+                            formControlName="User_Related_Branch_Is_Valid" class="check_box_style"></mat-checkbox>
+                    </div>
+
+                    <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+                        <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                            fxLayoutAlign.lt-sm="start center">Member public Id</label>
+                        <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                            floatLabel="always">
+                            <input matInput formControlName="User_Related_Branch_Employee_Id">
+                            <mat-error
+                                *ngIf="service.FG_User_Related_Branch_display.controls['User_Related_Branch_Employee_Id'].errors?.maxlength">
+                                Maximum length is 25character</mat-error>
+                        </mat-form-field>
+                    </div>
+
+                               <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+                        <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                            fxLayoutAlign.lt-sm="start center">User Updater</label>
+                        <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                            floatLabel="always">
+                            <input matInput formControlName="User_Related_Branch_Updater">
+                        </mat-form-field>
+                    </div>
+                    
+                    <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+                        <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                            fxLayoutAlign.lt-sm="start center">Update Time</label>
+                        <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                            floatLabel="always">
+                            <input matInput formControlName="User_Related_Branch_Update_Time">
+                        </mat-form-field>
+                    </div>
+                    
+                    <div flex fxLayout="row" fxLayoutAlign="space-between" class="put_padding Medium_Container">
+                        <button class="btn btn-primary"
+                            (click)="edit_user_to_branch(service.FG_User_Related_Branch_display)">Update
+                            Relation</button>
+                        <button class="btn btn-primary"
+                            (click)="Delete_Relation(service.FG_User_Related_Branch_display)">Delete
+                            Relation</button>
+                        <button class="btn btn-secondary" routerLink="{{'/main/employee/company_users/' + Company_id}}"
+                            routerLinkActive='active'>Back</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

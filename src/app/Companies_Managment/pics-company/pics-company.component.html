@@ -1,0 +1,90 @@
+<div class="container">
+    <H2>Company Pictures</H2>
+    <form [formGroup]="service.formGroup_Company_name" class="Medium_Container">
+        <div class="put_border put_padding put_margin">
+            <H4 class="text_align_center">Company Basic Data</H4>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Company Id</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="$Company_Id">
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Company Name</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Company_Name">
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Copmany Name Arabic</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Company_Name_Arabic">
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+
+    <div fxLayout="column" class="Medium_Container put_border put_padding" flex  fxLayoutAlign="space-around">
+        <div flex fxFlex="88" class=" mat-elevation-z8" fxLayout="column">
+            <H4 class="text_align_center">Company Photos</H4>
+            <table mat-table [dataSource]="listData">
+                <ng-container matColumnDef="company_Picture_Id" >
+                    <mat-header-cell *matHeaderCellDef >Picture Id</mat-header-cell>
+                    <mat-cell *matCellDef="let element" >{{element.company_Picture_Id}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="company_Picture_Display_Name">
+                    <mat-header-cell *matHeaderCellDef>Picture</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.company_Picture_Display_Name}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="company_Picture_Comment">
+                    <mat-header-cell *matHeaderCellDef>Picture Comment</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.company_Picture_Comment}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="company_Picture_Is_Owner_Identity">
+                    <mat-header-cell *matHeaderCellDef>Is Owner Identity</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.company_Picture_Is_Owner_Identity}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="company_Picture_Is_Branch_Identity">
+                    <mat-header-cell *matHeaderCellDef>Is Branch Identity</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.company_Picture_Is_Branch_Identity}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="company_Picture_Is_Deleted">
+                    <mat-header-cell *matHeaderCellDef>Is Picture Deleted</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.company_Picture_Is_Deleted}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="loading">
+                    <mat-footer-cell *matFooterCellDef colspan="6">loading data..</mat-footer-cell>
+                </ng-container>
+                <ng-container matColumnDef="noData">
+                    <mat-footer-cell *matFooterCellDef colspan="6">No Data.</mat-footer-cell>
+                </ng-container>
+
+                <!-- template -->
+                <mat-header-row *matHeaderRowDef="displayedcolumns"></mat-header-row>
+                <mat-row *matRowDef="let row;columns:displayedcolumns" (click)="select_pic(row)"></mat-row>
+                <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{hide:!(listData == null)}">
+                </mat-footer-row>
+                <mat-footer-row *matFooterRowDef="['noData']"
+                    [ngClass]="{hide:!(listData!=null && listData.data.length==0)}">
+                </mat-footer-row>
+
+                <!-- template -->
+            </table>
+            <mat-paginator [pageSizeOptions]="[10,25,50]" [pageSize]="10"></mat-paginator>
+        </div>
+
+        <div flex fxLayout="row" fxLayoutAlign="space-between" fxFlex="100" class="put_padding">
+            <button  class="btn btn-primary" (click)="openUserDetails()">Add Photo</button>
+            <button  class="btn btn-secondary" routerLink="{{'/main/employee/edit_company/' + company_Id}}" routerLinkActive='active'>Back</button>
+        </div>
+    </div>
+</div>

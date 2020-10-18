@@ -1,0 +1,390 @@
+<div class="container" flex fxLayout="column">
+    <H2>Branch</H2>
+    <form class="Medium_Container" [formGroup]="service.FG_Company_Label">
+        <div class="put_border put_padding put_margin">
+            <H4 class="text_align_center">Company Basic Data</H4>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Company Id</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="$Company_Id">
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Company Name</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Company_Name">
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">اسم الشركة بالعربي</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Company_Name_Arabic">
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+
+
+    <form [formGroup]="service.FG_Branches" class="Medium_Container" flex fxLayout="column">
+
+        <div class="put_border put_padding put_margin_not_auto" fxLayout="column" fxFlex="100">
+            <H4 class="text_align_center">Branch Name and Description</H4>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required" fxFlex="100">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Branch Name</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Branch_Name">
+                    <mat-error *ngIf="service.FG_Branches.controls['Branch_Name'].errors?.required">This field is
+                        Mandatory
+                    </mat-error>
+                    <mat-error *ngIf="service.FG_Branches.controls['Branch_Name'].errors?.maxlength">Maximum length is
+                        25character</mat-error>
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">اسم
+                     الفرع بالعربي</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Branch_Name_Arabic">
+                    <mat-error *ngIf="service.FG_Branches.controls['Branch_Name_Arabic'].errors?.required">This field is
+                        Mandatory</mat-error>
+                    <mat-error *ngIf="service.FG_Branches.controls['Branch_Name_Arabic'].errors?.maxlength">Maximum
+                        length
+                        is 25character</mat-error>
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Branch Description</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Branch_Description">
+                    <mat-error *ngIf="service.FG_Branches.controls['Branch_Description'].errors?.required">This field is
+                        Mandatory</mat-error>
+                    <mat-error *ngIf="service.FG_Branches.controls['Branch_Description'].errors?.maxlength">Maximum
+                        length
+                        is 300character</mat-error>
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">وصف
+                    الفرع بالعربي</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Branch_Description_Arabic">
+                    <mat-error *ngIf="service.FG_Branches.controls['Branch_Description_Arabic'].errors?.required">This
+                        field
+                        is Mandatory</mat-error>
+                    <mat-error *ngIf="service.FG_Branches.controls['Branch_Description_Arabic'].errors?.maxlength">
+                        Maximum
+                        length is 300character</mat-error>
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Branch Note</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Branch_Note">
+                    <mat-error *ngIf="service.FG_Branches.controls['Branch_Note'].errors?.maxlength">Maximum length is
+                        300character</mat-error>
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Administrator Note</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Branch_Admin_Note">
+                    <mat-error *ngIf="service.FG_Branches.controls['Branch_Admin_Note'].errors?.maxlength">Maximum length is
+                        300character</mat-error>
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Is this a Main Branch</label>
+                <mat-checkbox fxFlex="65" fxLayoutAlign="start center" formControlName="Branch_Is_Main_Branch"
+                    class="check_box_style"></mat-checkbox>
+            </div>
+        </div>
+
+        <div class="put_border put_padding put_margin_not_auto" fxLayout="column" fxFlex="100">
+            <h4 class="text_align_center">Branch General information</h4>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Branch Id</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="$Branch_ID">
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Branch Status</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <mat-select formControlName="Branch_status" placeholder="Branch status">
+                        <mat-option [value]="owner.company_Status_Id" *ngFor="let owner of company_stattus">{{owner.company_Status_Name}}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="service.FG_Branches.controls['Branch_status'].errors?.maxlength">
+                        Please select branch status</mat-error>                    
+                </mat-form-field>
+            </div>
+
+            <div *ngIf="!(Branch_Id == 0)" flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around"
+                appearance="none" class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Last Updater</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Branch_Updater">
+                </mat-form-field>
+                
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Update Time</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start">
+                    <input matInput type="datetime"
+                        formControlName="Branch_Update_Time">
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="put_border put_padding put_margin_not_auto" fxLayout="column" fxFlex="100">
+            <h4 class="text_align_center">Branch Address and location</h4>
+
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Branch Address</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Branch_Address">
+                    <mat-error *ngIf="service.FG_Branches.controls['Branch_Address'].errors?.required">This field is
+                        Mandatory</mat-error>
+                    <mat-error *ngIf="service.FG_Branches.controls['Branch_Address'].errors?.maxlength">Maximum
+                        length
+                        is
+                        80character</mat-error>
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Branch City</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <mat-select formControlName="Branch_City" placeholder="Branch City"
+                        (selectionChange)="change_city()" #selected_city>
+                        <mat-option [value]="City.city_Id" *ngFor="let City of Cities">{{City.city_Name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="service.FG_Branches.controls['Branch_City'].errors">Please select an city
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Branch Area</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <mat-select #Branch_area_id formControlName="Branch_Area" placeholder="Branch Area">
+                        <mat-option [value]="Area.area_ID" *ngFor="let Area of Areas">{{Area.area_Name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="service.FG_Branches.controls['Branch_Area'].errors">Please select an area
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+                <div fxFlex="30" fxLayoutAlign="end center" fxLayoutAlign.lt-sm="start center" class="required">
+                    <label class="General_label" fxLayoutAlign="end center" fxLayoutAlign.lt-sm="start center">Add
+                        Google Maps location</label>
+                </div>
+                <div flex fxLayout="row" fxLayoutAlign="space-around" fxFlex="65" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <button class="btn btn-primary" type="button" (click)="open_map(service.FG_Branches.controls['Branch_Area'].value,service.FG_Branches.controls['Branch_Lat'].value,service.FG_Branches.controls['Branch_Long'].value)">Map</button>
+                    <button class="btn btn-primary" type="button" (click)="open_link()">Link</button>
+                    <button class="btn btn-primary" type="button" (click)="open_manual()">Manual</button>
+                </div>
+            </div>
+
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Branch Latitude</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Branch_Lat" #lat>
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Branch Longitude</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Branch_Long" #long>
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Is location valid</label>
+                <div fxFlex="65" fxLayoutAlign="space-around" appearance="outline" color="accent" floatLabel="always">
+                    <mat-form-field fxFlex="50" fxLayoutAlign="space-around" appearance="outline" color="accent"
+                        floatLabel="always">
+                        <input matInput formControlName="Is_valid_loc">
+                        <mat-error *ngIf="service.FG_Branches.controls['Is_valid_loc'].errors">Location is not valid
+                        </mat-error>
+                    </mat-form-field>
+                    <div fxFlex="50" fxLayoutAlign="space-around" appearance="outline" color="accent"
+                        floatLabel="always" class="put_padding">
+                        <button class="btn btn-primary" (click)="Confirm_location(lat.value, long.value)">Confirm
+                            Location</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="put_border put_padding put_margin_not_auto" fxLayout="column" fxFlex="100">
+            <H4 class="text_align_center">Company Contacts</H4>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Primary Phone</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Branch_Phone_1">
+                    <mat-error *ngIf="service.FG_Branches.controls['Branch_Phone_1'].errors?.required">This field is
+                        Mandatory</mat-error>
+                    <mat-error *ngIf="service.FG_Branches.controls['Branch_Phone_1'].errors?.maxlength">Maximum
+                        length
+                        is
+                        25character</mat-error>
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Second Phone</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Branch_Phone_2">
+                    <mat-error *ngIf="service.FG_Branches.controls['Branch_Phone_2'].errors?.maxlength">Maximum
+                        length
+                        is
+                        25character</mat-error>
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Third
+                    Phone</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Branch_Phone_3">
+                    <mat-error *ngIf="service.FG_Branches.controls['Branch_Phone_3'].errors?.maxlength">Maximum
+                        length
+                        is
+                        25character</mat-error>
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Owner
+                    Phone</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Branch_Owner_Phone">
+                    <mat-error *ngIf="service.FG_Branches.controls['Branch_Owner_Phone'].errors?.maxlength">Maximum
+                        length
+                        is 25character</mat-error>
+                </mat-form-field>
+            </div>            
+        </div>
+
+        <div class="put_border put_padding put_margin_not_auto" fxLayout="column" fxFlex="100">
+            <h4 class="text_align_center">Branch Rates amd Ban</h4>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none" class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Branch Rate</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start"appearance="outline" color="accent"
+                floatLabel="always">
+                    <input matInput formControlName="Branch_Rate">                   
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Ban
+                    Count</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Branch_Ban_Count">
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Hot
+                    Ban Count</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Branch_Hot_Ban_Count">
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Ban
+                    Period</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Branch_Ban_Period">
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Last
+                    Ban Date</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start"><input matInput
+                        formControlName="Branch_Ban_Date">                    
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div flex fxLayout="row" fxLayoutAlign="space-between" fxFlex="100" class="put_padding">
+            <button class="btn btn-primary" (click)="execute_edit(service.FG_Branches)">Update
+                Branch</button>
+            <button class="btn btn-secondary" routerLink="{{'/main/employee/branches/' + service.FG_Branches.controls['Branch_Related_Company'].value}}"
+                routerLinkActive='active'>Back</button>
+        </div>
+    </form>
+</div>

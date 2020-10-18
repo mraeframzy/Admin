@@ -1,0 +1,36 @@
+<div flex fxLayout="row" fxLayoutAlign="space-around" class="big_Container">
+    <div flex fxLayout="row" fxFlex="90">
+        <h2 class="uppder_case">Please enter latitude and longtude manually</h2>
+    </div>
+    <div flex fxLayout="row" fxFlex="10" class="dialog_confirm_content_container">
+        <span class="material-icons" id="close-icon" (click)="closeDialog(0,0)">close</span>
+    </div>
+</div>
+
+<form [formGroup]="service.FG_Location" class="Medium_Container">
+    <div class="put_border put_padding put_margin">
+        <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+            class="required">
+            <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                fxLayoutAlign.lt-sm="start center">Branch Latitude</label>
+            <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                floatLabel="always">
+                <input matInput formControlName="Branch_Lat">
+            </mat-form-field>
+        </div>
+        <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+            class="required">
+            <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                fxLayoutAlign.lt-sm="start center">Branch Longitude</label>
+            <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                floatLabel="always">
+                <input matInput formControlName="Branch_Long">
+            </mat-form-field>
+        </div>
+    </div>
+</form>
+
+<div flex fxLayout="row"  >
+    <button class="btn btn-primary put_margin_not_auto"  (click)="return_location(service.FG_Location)">Submit Location</button>
+    <button class="btn btn-secondary put_margin_not_auto" (click)="closeDialog(0,0)">Cancel</button>
+</div> 

@@ -1,0 +1,31 @@
+<div class="text_align_center">
+  <div class="display_inline">
+    <button routerLink='/main/employee/home' routerLinkActive='active' mat-button class="mat-menu-item">Home</button>
+    </div>
+  <div class="display_inline">
+    <button routerLink='/main/employee/o_users_manegment' routerLinkActive='active' mat-button class="mat-menu-item">Users
+      Manegment</button>
+    </div>
+  <div class="display_inline">
+    <button routerLink='/main/employee/o_companies_manegment' routerLinkActive='active' mat-button class="mat-menu-item">Companies
+      Manegment</button>
+    <!-- [matMenuTriggerFor]="menu_1" -->
+    <!-- <mat-menu #menu_1="matMenu">
+  <button mat-menu-item routerLink='/main/logged/home' routerLinkActive='active'>Home</button>
+  <button mat-menu-item routerLink='/main/logged/o_users_manegment' routerLinkActive='active'>Users Manegment</button>
+</mat-menu> -->
+  </div>
+  <div class="display_inline">
+    <button routerLink='/main/employee/Catigories_manegment' routerLinkActive='active' mat-button class="mat-menu-item">Catigories
+      Manegment</button>
+    </div>
+  <div class="display_inline">
+    <button mat-button [matMenuTriggerFor]="menu_2" class="mat-menu-item">Menu</button>
+    <mat-menu #menu_2="matMenu">
+      <button mat-menu-item routerLink='/main/employee/home' routerLinkActive='active'>Areas</button>
+      <button mat-menu-item routerLink='/main/employee/o_users_manegment' routerLinkActive='active'>Users
+        Manegment</button>
+    </mat-menu>
+  </div>
+</div>
+<router-outlet></router-outlet>

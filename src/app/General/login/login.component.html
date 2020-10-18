@@ -1,0 +1,45 @@
+<div class="container">    
+    <h4 fxLayoutAlign="center center">If you are a new User <a href="www.thenilezone.com/main/register" class="click_here animated_link">Click Here</a></h4>
+    <H2>Sign In</H2>    
+    <form [formGroup]="service.Login_FG" class="Medium_Container" (submit)="signin()">
+        <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+            class="required">
+            <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                fxLayoutAlign.lt-sm="start center">UserName</label>
+            <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                floatLabel="always">
+                <!-- [ngClass.lt-sm]="text_align_center" -->
+                <input matInput formControlName="UserName" >
+                <mat-error *ngIf="service.Login_FG.controls['UserName'].errors?.required">This field is Mandatory
+                </mat-error>
+                <mat-error *ngIf="service.Login_FG.controls['UserName'].errors?.maxlength">Maximum length is 49
+                    character</mat-error>
+            </mat-form-field>
+        </div>
+        <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Password</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <!-- [ngClass.lt-sm]="text_align_center" -->
+                    <input matInput formControlName="password"  type="password">
+                    <mat-error *ngIf="service.Login_FG.controls['password'].errors?.required">
+                        This field is Mandatory</mat-error>
+                    <mat-error *ngIf="service.Login_FG.controls['password'].errors?.minlength">
+                        Minimum length is 6 character</mat-error>
+                    <mat-error *ngIf="service.Login_FG.controls['password'].errors?.maxlength">
+                        Maximum length is 84 character</mat-error>
+                </mat-form-field>
+            </div>
+            <br />
+            <div flex fxLayout="row"  fxLayoutAlign="space-around" >
+                <div flex fxLayout="row" fxFlex="30" fxFlex.lt-sm="48" fxLayoutAlign="end start">
+                    <button type="submit" class="btn btn-primary">Sign In</button>
+                </div>
+                <div flex fxLayout="row" fxFlex="65" fxFlex.lt-sm="48" fxLayoutAlign="start start">
+                    <button routerLink='/main/logged/home' routerLinkActive='active' class="btn btn-secondary">Cancel</button>
+                </div>
+            </div>
+    </form>
+</div>

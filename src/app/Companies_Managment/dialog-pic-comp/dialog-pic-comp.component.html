@@ -1,0 +1,107 @@
+<div class="container">
+    <div flex fxLayout="row" fxLayoutAlign="space-around" class="big_Container">
+        <div flex fxLayout="row" fxFlex="90">
+            <h2 class="uppder_case">Company Picture</h2>
+        </div>
+        <div flex fxLayout="row" fxFlex="10" class="dialog_confirm_content_container">
+            <mat-icon id="close-icon" (click)="closeDialog()" class="pos_absolute_top">close</mat-icon>
+        </div>
+    </div>
+    <form [formGroup]="service.formGroup_Company_Picture_upload" class="Medium_Container">
+        <div flex fxLayout="column" class="put_border put_padding put_margin">
+            <H4 *ngIf="!(service.formGroup_Company_Picture_upload.controls['$Company_Picture_Id'].value >0)" class="text_align_center">Upload Picture</H4>
+            <H4 *ngIf="(service.formGroup_Company_Picture_upload.controls['$Company_Picture_Id'].value >0)" class="text_align_center">Update Picture</H4>
+            <div flex fxLayout="column" fxLayout.lt-sm="column" appearance="none" class="required" fxFlex="100"
+                fxLayoutAlign="center center">
+                <img mat-card-image src={{imgSrc}} alt="Please Select Photo to Upload"
+                    width="800px">
+                <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                    class="Medium_Container" fxFlex="100" class="full_width">
+                    <label class="General_label" fxFlex="30" fxLayoutAlign="end center" for="Caption"
+                        fxLayoutAlign.lt-sm="start center">Choose Picture</label>
+                    <div fxFlex="65" fxLayoutAlign="start start">
+                            <input [disabled]="(service.formGroup_Company_Picture_upload.controls['$Company_Picture_Id'].value >0)" 
+                            type="file" accept="image/*" (change)="showPreview($event)" class="General_label"
+                            #Caption required>
+                    </div>
+                </div>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" fxFlex="100">
+                <div class="General_label" fxFlex="30" fxLayoutAlign="end center" fxLayoutAlign.lt-sm="start center">
+                </div>
+                <div fxFlex="65" fxLayoutAlign="start start">
+                    <mat-error *ngIf="service.formGroup_Company_Picture_upload.controls['Dummy_Has_Photo'].errors">
+                        Pleases select Picture</mat-error>
+                </div>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required" fxFlex="100">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Picture Name</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Company_Picture_Display_Name" #Pic_Caption
+                        (focusout)="check_pic_name(Pic_Caption.value)">
+                        <!-- Pic_Caption.value -->
+                    <mat-error
+                        *ngIf="service.formGroup_Company_Picture_upload.controls['Company_Picture_Display_Name'].errors?.required">
+                        Please enter Photo Label</mat-error>
+                    <mat-error
+                        *ngIf="service.formGroup_Company_Picture_upload.controls['Company_Picture_Display_Name'].errors?.maxlength">
+                        Picture Name is 25 character Maxmimum</mat-error>
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" fxFlex="100">
+                <div class="General_label" fxFlex="30" fxLayoutAlign="end center" fxLayoutAlign.lt-sm="start center">
+                </div>
+                <div fxFlex="65" fxLayoutAlign="start start">
+                    <mat-error
+                        *ngIf="service.formGroup_Company_Picture_upload.controls['Dummy_Name_Already_Used'].errors">
+                        Picture Name already used</mat-error>
+                </div>
+            </div>
+
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Picture Type</label>
+                <div fxFlex="65" fxLayoutAlign="start start">
+                    <mat-radio-group (change)="select_pic_cat()">
+                        <!-- #radio -->
+                        <mat-radio-button class="put_margin" #general value="1" selected>General</mat-radio-button>
+                        <mat-radio-button #owner value="2">Owner Identity</mat-radio-button>
+                        <mat-radio-button #branch value="3">Company or Branch Identity</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" fxFlex="100">
+                <div class="General_label" fxFlex="30" fxLayoutAlign="end center" fxLayoutAlign.lt-sm="start center">
+                </div>
+                <div fxFlex="65" fxLayoutAlign="start start">
+                    <mat-error *ngIf="service.formGroup_Company_Picture_upload.controls['Dummy_Has_Pic_Type'].errors">
+                        Please select Picture Catigory</mat-error>
+                </div>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Picture Comment</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Company_Picture_Comment">
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" class="put_margin" [ngStyle]="{width:'200px'}" appearance="none">
+                <button 
+                    *ngIf="!(service.formGroup_Company_Picture_upload.controls['$Company_Picture_Id'].value >0)"
+                    (click)="upload_photos(service.formGroup_Company_Picture_upload.value, Caption)"
+                    class="btn btn-primary put_margin">Submit</button>
+                <button 
+                    *ngIf="(service.formGroup_Company_Picture_upload.controls['$Company_Picture_Id'].value >0)"
+                    (click)="update_photos()"
+                    class="btn btn-primary put_margin">update</button>
+                <button (click)="closeDialog()" class="btn btn-secondary put_margin">Close</button>
+            </div>
+
+        </div>
+    </form>
+</div>

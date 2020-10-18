@@ -1,0 +1,315 @@
+<div class="container">
+    <H2>Edit Company</H2>
+    <form [formGroup]="service.formGroup_Company" class="Medium_Container">
+        <div class="put_border put_padding put_margin">
+            <H4 class="text_align_center">Company Basic Data</H4>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Company Id</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="$Company_Id">
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Company Name</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Company_Name">
+                    <mat-error *ngIf="service.formGroup_Company.controls['Company_Name'].errors?.required">This field is
+                        Mandatory
+                    </mat-error>
+                    <mat-error *ngIf="service.formGroup_Company.controls['Company_Name'].errors?.maxlength">Maximum
+                        length is
+                        50character</mat-error>
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Copmany Name Arabic</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Company_Name_Arabic">
+                    <mat-error *ngIf="service.formGroup_Company.controls['Company_Name_Arabic'].errors?.required">This
+                        field is
+                        Mandatory</mat-error>
+                    <mat-error *ngIf="service.formGroup_Company.controls['Company_Name_Arabic'].errors?.maxlength">
+                        Maximum length is
+                        50character</mat-error>
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Company Description</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Company_Desc">
+                    <mat-error *ngIf="service.formGroup_Company.controls['Company_Desc'].errors?.required">This field is
+                        Mandatory
+                    </mat-error>
+                    <mat-error *ngIf="service.formGroup_Company.controls['Company_Desc'].errors?.maxlength">Maximum
+                        length is
+                        300character</mat-error>
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Copmany Description Arabic</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Company_Desc_Arabic">
+                    <mat-error *ngIf="service.formGroup_Company.controls['Company_Desc_Arabic'].errors?.maxlength">
+                        Maximum length is
+                        300character</mat-error>
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Primary Phone</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Company_Phone_1">
+                    <mat-error *ngIf="service.formGroup_Company.controls['Company_Phone_1'].errors?.required">This field
+                        is Mandatory
+                    </mat-error>
+                    <mat-error *ngIf="service.formGroup_Company.controls['Company_Phone_1'].errors?.maxlength">Maximum
+                        length is
+                        25character</mat-error>
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Second Phone</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Company_Phone_2">
+                    <mat-error *ngIf="service.formGroup_Company.controls['Company_Phone_2'].errors?.maxlength">Maximum
+                        length is
+                        25character</mat-error>
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Third
+                    Phone</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Company_Phone_3">
+                    <mat-error *ngIf="service.formGroup_Company.controls['Company_Phone_3'].errors?.maxlength">Maximum
+                        length is
+                        25character</mat-error>
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Fourth Phone</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Company_Phone_4">
+                    <mat-error *ngIf="service.formGroup_Company.controls['Company_Phone_4'].errors?.maxlength">Maximum
+                        length is
+                        25character</mat-error>
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Company Note</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Company_Note">
+                    <mat-error *ngIf="service.formGroup_Company.controls['Company_Note'].errors?.maxlength">Maximum length is 300character</mat-error>
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none" >
+                <div class="General_label" fxFlex="40" fxLayoutAlign="end center" fxLayoutAlign.lt-sm="start center" class="put_margin"></div>
+                <div class="check_box_style" fxFlex="58" fxLayoutAlign="start center" class="put_margin">
+                    <button *ngIf="this.is_Customer_service || this.is_Owner" (click)="update_company_as_cs()" class="btn btn-primary put_margin">Update</button>
+                    <button (click)="clear()" class="btn btn-secondary">Refresh Company Details</button>                
+                </div>
+                <br />
+            </div>
+        </div>
+        <div class="put_border put_padding put_margin">
+            <H4 class="text_align_center">Company Details</H4>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none" class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center" fxLayoutAlign.lt-sm="start center">Company Owner</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                        floatLabel="always" (click)="openUserDetails(service.formGroup_Company)" class="handy">
+                        <mat-select formControlName="Company_Owner" disabled class="handy">
+                            <mat-option  [value]="owner.id"  *ngFor="let owner of owners">{{owner.name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">If
+                    Company has Confirmed Id</label>
+                <mat-checkbox fxFlex="65" fxLayoutAlign="start center" formControlName="Company_Owner_Is_With_Photo_Id"
+                    class="check_box_style"></mat-checkbox>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">If
+                    Company has Location</label>
+                <mat-checkbox fxFlex="65" fxLayoutAlign="start center" formControlName="Company_Has_Location"
+                    class="check_box_style"></mat-checkbox>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Company Status</label>
+                <select fxFlex="65" fxLayoutAlign="start center" formControlName="Company_Status"
+                    class="Drop_Down_List">
+                    <option *ngFor="let item of companies_statuses" value="{{item.company_Status_Id}}">
+                        {{item.company_Status_Name}}</option>
+                </select>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Administrator Notes</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Company_Web_Admin_Note">
+                    <mat-error *ngIf="service.formGroup_Company.controls['Company_Web_Admin_Note'].errors?.maxlength">
+                        Maximum length
+                        is 300character</mat-error>
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center" fxLayoutAlign.lt-sm="start center">Company Point Transition Auto Commenter</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Company_Point_Transition_Auto_Comment">
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Company Updater</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Company_Updater">
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none" class="required">
+            <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                fxLayoutAlign.lt-sm="start center">Update Time</label>
+            <mat-form-field fxFlex="65" fxLayoutAlign="start start"><input matInput formControlName="Company_Update_Time" >
+            </mat-form-field>
+        </div>                    
+            
+        <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none" >
+            <div class="General_label" fxFlex="40" fxLayoutAlign="end center" fxLayoutAlign.lt-sm="start center" class="put_margin"></div>
+            <div class="check_box_style" fxFlex="58" fxLayoutAlign="start center" class="put_margin">
+                <button *ngIf="this.is_Support || this.is_Owner" (click)="update_company_as_support()" class="btn btn-primary put_margin">Update</button>
+                <button (click)="clear()" class="btn btn-secondary">Refresh Company Details</button>
+            </div>
+            <br />
+        </div>
+        </div>
+        <div class="put_border put_padding put_margin">
+            <H4 class="text_align_center">Company Other Data</H4>
+            <!-- <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Copmany Points</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Company_Points">
+                </mat-form-field>
+            </div> -->
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Company Rate</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Copmany_Rate">
+                </mat-form-field>
+            </div>
+            <!-- <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Hot
+                    Ban Count</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Company_Hot_Ban_Count">
+                </mat-form-field>
+            </div> -->
+            <!-- <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Ban
+                    Count</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Company_Ban_Count">
+                </mat-form-field>
+            </div> -->
+            <!-- <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Last
+                    Ban Date</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start">
+                    <input matInput formControlName="Company_Ban_Date" >
+                </mat-form-field>
+            </div> -->
+            <!-- <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Ban
+                    Period</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Company_Ban_Period">
+                </mat-form-field>
+            </div> -->
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Number of Likes</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Company_Likes_Count">
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Company Followers Count</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Company_Followers_Count">
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="column" >
+            <div fxLayoutAlign="center" flex fxLayout="row" fxLayout.lt-md="column">
+                <button *ngIf="this.is_Owner" class="btn btn-primary put_margin" routerLink="{{'/main/employee/branches/' + User_Id}}" routerLinkActive='active'>Branchess Management</button>
+                <button *ngIf="this.is_Owner" class="btn btn-primary put_margin" routerLink="{{'/main/employee/company_users/' + User_Id}}" routerLinkActive='active'>Company Users Management</button>
+                <button *ngIf="this.is_Owner" class="btn btn-primary put_margin">Cases, Reports and Bans</button>
+                <button routerLink="{{'/main/employee/company_picture/' + User_Id}}" routerLinkActive='active' *ngIf="this.is_Owner" class="btn btn-primary put_margin">Company Identity</button>
+            </div>
+            <div flex fxLayout="row" fxLayoutAlign="end end">
+                <button routerLink="/main/employee/o_companies_manegment" routerLinkActive='active' class="btn btn-secondary">Back</button>
+            </div> 
+            </div>
+        </div>
+    </form>
+</div>

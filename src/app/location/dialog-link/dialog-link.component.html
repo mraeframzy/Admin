@@ -1,0 +1,30 @@
+<div class="container" flex fxLayout="column">
+    <div flex fxLayout="row" fxLayoutAlign="space-around" class="big_Container">
+        <div flex fxLayout="row" fxFlex="90">
+            <h2 class="uppder_case">Please enter Google Map Link</h2>
+        </div>
+        <div flex fxLayout="row" fxFlex="10" class="dialog_confirm_content_container">
+            <span class="material-icons" id="close-icon" (click)="closeDialog(0,0)">close</span>
+        </div>
+    </div>
+
+    <form class="Medium_Container" [formGroup]="service.FG_Location_link">
+            <div class="put_border put_padding put_margin">
+                <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                    class="required">
+                    <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                        fxLayoutAlign.lt-sm="start center">Google maps link</label>
+                    <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                        floatLabel="always">
+                        <input matInput formControlName="Link">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div flex fxLayout="row">
+                <button class="btn btn-primary put_margin_not_auto"
+                    (click)="return_location(service.FG_Location_link)">Submit
+                    Location</button>
+                <button class="btn btn-secondary put_margin_not_auto" (click)="closeDialog(0,0)">Cancel</button>
+            </div> 
+    </form>
+</div>

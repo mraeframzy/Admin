@@ -1,0 +1,16 @@
+<div flex fxLayout="row" fxLayoutAlign="space-around" class="big_Container">
+    <div flex fxLayout="row" fxFlex="90">
+        <h2 class="uppder_case">Please select a Location</h2>
+    </div>
+    <div flex fxLayout="row" fxFlex="10" class="dialog_confirm_content_container">
+        <span class="material-icons" id="close-icon" (click)="closeDialog(0,0)">close</span>
+    </div>
+</div>
+<div flex fxLayout="row" fxLayoutAlign="space-around" class="big_Container">
+    <div #mapContainer id="map"></div>
+</div>
+
+<div flex fxLayout="row">
+    <button class="btn btn-primary put_margin_not_auto" (click)="return_location()">Submit Location</button>
+    <button class="btn btn-secondary put_margin_not_auto" (click)="closeDialog(0,0)">Cancel</button>
+</div>

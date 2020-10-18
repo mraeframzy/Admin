@@ -1,1 +1,104 @@
 /* You can add global styles to this file, and also import other style files */
+/* General */
+html, body { height: 100%; background: #eeeff3;color: #777;}
+@font-face {font-family: raleway;src: url(assets/font/Raleway-Thin.ttf) format("opentype");}
+body  { margin: 0;font-family: raleway, sans-serif;}
+h2 {font-size: 32px;}h4 {font-size: 26px;}
+.uppder_case{text-transform:uppercase;}
+h1, h2, h3, h4, h5, h6 {margin: 15px 0;font-family: raleway, sans-serif;font-weight: 200;color: #000;line-height: 36px;padding: 0 0;background: 0 0;}
+
+/* Containers */
+.container {margin: 20px;}
+.Medium_Container{max-width: 1000px;margin: auto; width: 100%;}
+.big_Container{max-width: 1000px;margin: auto;}
+.fake{width: 100%;} .display_inline{ display: inline-block;}
+.You_Are_Here{background-color: #f5f5f5;padding: 10px;}
+.main_master_top{padding: 15px 15px;background-color: #333;width: 100%;}
+.link_per_line{flex-wrap: wrap;margin-bottom: 10px;}
+table.mat-table {width: 100%;}
+.search-form-field {width: 100%;}
+
+/* snackbar */
+.mat-snack-bar-container.notification {width: 120px;height: 120px;}
+.notification > .mat-simple-snackbar {justify-content: center; margin-top: 35px;}  /* make text at center */
+snack-bar-container.success {background-color : #fa7763;color : white;}
+snack-bar-container.fail {background-color : #333;color : white;}
+
+/* elements */
+.animated_link{text-decoration: none;text-transform: none;-webkit-transition: all .2s ease-in;transition: all .2s ease-in;cursor: pointer;}
+
+.main_master_top a{font-size: 13px;margin: 0px 10px;color:  #fa7763;}
+.main_master_top a:hover, .main_master_top:focus,.main_master_top a.active{color: white;}
+
+.You_Are_Here a, .You_Are_Here p {display: inline-block;margin:0px 0px 0px 10px; font-size: 13px;}
+.block_div{display:block;} 
+.You_Are_Here p{color: grey;} .You_Are_Here a, .click_here, .normal_link{color: black;}
+.You_Are_Here a:hover, .You_Are_Here a:focus,.click_here:hover,.click_here:focus,.normal_link:hover,.normal_link:focus {color:#fa7763;;}
+.You_Are_Here *:not(:first-child)::before {content: "/\00a0";}
+.click_here{cursor: pointer;margin-left: 5px;text-decoration: underline;font-style: italic;font-size: 80%;}
+.link_per_line a {content: '';width: 100%;}
+.disabled_link{pointer-events: none; cursor: default;color:grey;}
+.normal_link:hover,.normal_link:focus{color:default;}
+.check_box_style{height: 35px;}
+.radio_buttons{height: 35px;} .radio_buttons mat-radio-button{margin-right:30px;}
+
+/* General syles */
+.margins{padding: 5px 30px;}
+.margin_bottom{margin-bottom:6px ;}
+.remove_margin {margin: 0px !important; }
+.General_label{font-weight: 700;font-family: Arial,helvetica neue,Helvetica,sans-serif;font-size: 13px;line-height: 1.5;}
+.General_label_invalid {color: red;}
+.text_align_center{text-align:center !important;}/* align text center */
+.grey_hover:hover{background-color: lightgray;}
+.put_border{border:solid 1px;}
+.put_padding{padding:6px;}
+.put_margin{margin:6px auto !important;}
+.put_margin_not_auto{margin:6px !important;}
+.pos_absolute{position: fixed;bottom:70px;right: 70px;z-index:10000 !important;}
+.pos_absolute_top{position: fixed;top:12vh;right: 12vw;z-index:10000 !important;}
+.round_orange_button{background-color:#fa7763;color:#333;border-radius: 50%;border: none; cursor: pointer;font-size: 36px;-webkit-transition: all .2s ease-in;transition: all .2s ease-in;}
+.round_orange_button:hover{background-color:#eeeff3;color:#fa7763;border: solid grey 1px;}
+.full_width{width:100%;}
+#map{height: 500px;width: 100%;}
+.sebm-google-map-container {height: 300px;}
+
+/* CRUD Form */
+.required>label:first-child::after{content: '*';color: #dc3545;padding-left: 5px;} /* set container style to required */
+.green_color {color: green;}
+
+/* Mat element*/
+/* Modify colors of input fields */
+.mat-form-field{font-family: inherit;}  /* set font family and fontsize  font-size: 13px;*/
+.mat-form-field-wrapper{width: 100%;padding: 0px !important;background-color: white;border: 1px solid #d6d4d4;}/* set width, background color and border*/
+.mat-form-field-appearance-outline.mat-focused.mat-accent .mat-form-field-outline-thick {color: blue !important;} /* set color of the border on focus*/
+.mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-end, .mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-gap, .mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-start {border-width: 1px !important;border-radius: 0px;;} /* set border radius and width on focus*/
+/* Modify colors of input fields when confirming company name */
+.check_company_name_ok .mat-form-field-wrapper {border: 1px solid green;} 
+.check_company_name_Nok .mat-form-field-wrapper {border: 1px solid red;} 
+
+.Drop_Down_List{height: 60px;color: currentColor;}
+.Drop_Down_List option {height: 35px;}
+button.btn, .btn-secondary{padding: 15px 25px;font-size: 16px;line-height: 20px;font-weight: 400;text-transform: none;-webkit-transition: all .2s ease-in;transition: all .2s ease-in;}
+.btn-primary , .btn-secondary {border: none;color: #fff;text-shadow: none;}
+.btn-primary, .btn-primary:disabled {background: #fa7763;}
+.btn-primary:hover {background: #333333;}
+.btn-secondary{background: #333333;}
+.btn-secondary:hover{background: #fa7763;}
+
+/* mat table */
+.hide {display:none;}
+mat-footer-row mat-footer-cell{justify-content:center;font-style:italic;}
+.edit_icon:hover {background-color: blue;}
+.search_icon:hover {background-color: #fa7763;}
+.clear_icon:hover {background-color: gray;}
+.edit_button,.search_icon,.clear_icon{border: none;cursor: pointer;margin:2px;}
+mat-cell, mat-header-cell { margin: 0;font-family: raleway, sans-serif;font-size: 14px;}
+.mat-form-field-underline{position: relative !important;bottom: 0px !important;}
+
+/* Dialog box */
+.dialog_confirm_content_container{margin: 5px 5px 15px 5px; color:#8f9cb5; display:flex;}
+ #close-icon{margin-left:auto;order:2; font-weight:bolder;}
+ #close-icon:hover , .handy:hover , .handy div:hover  {cursor: pointer;}
+#no-button{height : 40px; width:70px; background-color: #fc7169;color:white;border-radius:0px;}
+#yes-button{height:40px;width:70px;background-color:#b6bece;color:white;border-radius:0px;}
+span.content-span{padding:35px 16px; text-align:center;font-size:20px;}

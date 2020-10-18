@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  BaseUrl : 'http://localhost:47806/api/',
+  Image_Folder_Path : 'E:/Programming projects/34- The NileZone/Core/TheNileZoneAdmin/TheNileZoneAdmin/TheNileZoneAdmin/Images/'
 };
 
 /*

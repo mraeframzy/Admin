@@ -17,6 +17,7 @@ h1, h2, h3, h4, h5, h6 {margin: 15px 0;font-family: raleway, sans-serif;font-wei
 .link_per_line{flex-wrap: wrap;margin-bottom: 10px;}
 table.mat-table {width: 100%;}
 .search-form-field {width: 100%;}
+.width_7 div{width:14.28%;}
 
 /* snackbar */
 .mat-snack-bar-container.notification {width: 120px;height: 120px;}
@@ -61,6 +62,7 @@ snack-bar-container.fail {background-color : #333;color : white;}
 .full_width{width:100%;}
 #map{height: 500px;width: 100%;}
 .sebm-google-map-container {height: 300px;}
+.min_width{min-width: 70px;}
 
 /* CRUD Form */
 .required>label:first-child::after{content: '*';color: #dc3545;padding-left: 5px;} /* set container style to required */
@@ -88,10 +90,11 @@ button.btn, .btn-secondary{padding: 15px 25px;font-size: 16px;line-height: 20px;
 /* mat table */
 .hide {display:none;}
 mat-footer-row mat-footer-cell{justify-content:center;font-style:italic;}
+.edit_icon{margin: 0px;width:24px;height: 24px;}
 .edit_icon:hover {background-color: blue;}
+.edit_button,.search_icon,.clear_icon{border: none;cursor: pointer;margin:0px;width:24px !important;padding:0px !important;}
 .search_icon:hover {background-color: #fa7763;}
 .clear_icon:hover {background-color: gray;}
-.edit_button,.search_icon,.clear_icon{border: none;cursor: pointer;margin:2px;}
 mat-cell, mat-header-cell { margin: 0;font-family: raleway, sans-serif;font-size: 14px;}
 .mat-form-field-underline{position: relative !important;bottom: 0px !important;}
 
@@ -102,3 +105,6 @@ mat-cell, mat-header-cell { margin: 0;font-family: raleway, sans-serif;font-size
 #no-button{height : 40px; width:70px; background-color: #fc7169;color:white;border-radius:0px;}
 #yes-button{height:40px;width:70px;background-color:#b6bece;color:white;border-radius:0px;}
 span.content-span{padding:35px 16px; text-align:center;font-size:20px;}
+
+/* mat list */
+mat-selection-list.make-scrollable {height: 400px;overflow-y: auto;}

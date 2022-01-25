@@ -1,0 +1,265 @@
+<div flex fxLayout="row" fxLayoutAlign="space-around" class="big_Container">
+    <div flex fxLayout="row" fxFlex="90">
+        <h2>Payment Details</h2>
+    </div>
+    <div flex fxLayout="row" fxFlex="10" class="dialog_confirm_content_container">
+        <span class="material-icons" id="close-icon" (click)="cancel()">close</span>
+    </div>
+</div>
+<div class="container">
+    <form [formGroup]="service.formGroup_payment" class="Medium_Container">
+        <div class="put_border text_align_center put_margin">
+            <h4>Payment General Information</h4>
+            <div  flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around"
+                appearance="none" class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Payment Id</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Payment_Id">
+                </mat-form-field>
+            </div>
+            <div  flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around"
+                appearance="none" class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Payment Id Date</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Payment_Id_Date">
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Deposit Amout</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Payment_Amount">
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Number of Points</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Payment_Points">
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">If payment is refunded</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput style="visibility: hidden;" autocomplete="off">
+                    <mat-checkbox class="check_box_style" 
+                formControlName="Payment_Is_refund"></mat-checkbox>                    
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Web
+                    Admin Notes</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Payment_Web_Admin_Notes" autocomplete="off">
+                    <mat-error *ngIf="service.formGroup_payment.controls['Payment_Web_Admin_Notes'].errors?.maxlength">
+                        Maximum length is 300character</mat-error>
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Payment Time</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Payment_DateTime">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="put_border text_align_center put_margin">
+            <h4>Payment Pricing and Discount</h4>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Point
+                    Pricing</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Points_Prices_Name">
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Payment Method</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="payment_Methods_name">
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Operator Discount Value</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Payment_Web_Operator_Discount">
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Operator maximum discount value</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="discounts_name">
+                </mat-form-field>
+            </div>
+
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Mail
+                    Discount Id</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Payment_Mail_Discount_Id">
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Mail
+                    Discount Id Date</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Payment_Mail_Discount_Id_Date">
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Mail Discount Value</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="mail_Discounts_value">
+                </mat-form-field>
+            </div>
+            <div  flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around"
+                appearance="none" class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Payment Card Id</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Payment_Related_Card_Id">
+                </mat-form-field>
+            </div>
+            <div  flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around"
+                appearance="none" class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Payment Card Id Date</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Payment_Related_Card_Id_Date">
+                </mat-form-field>
+            </div>
+            <div  flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around"
+                appearance="none" class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Payment Card Value</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="payement_Card_value">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="put_border text_align_center put_margin">
+            <h4>Who is performing the Payment</h4>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Who
+                    Pay Id</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Payment_Related_Who_Pay">
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Who
+                    Pay UserName</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="user_who_payed_name">
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Employee Performed The Payment Id</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Payment_Related_Employee_Performed_The_Payment">
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Employee Performed The Payment UserName</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="employee_performed_action_name">
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Target User Id</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Payment_Related_User">
+                </mat-form-field>
+            </div>
+            <div flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around" appearance="none"
+                class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Target User UserName</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="target_user_name">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="put_border text_align_center put_margin">
+            <h4>Payment Trace</h4>
+            <div  flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around"
+                appearance="none" class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Updater</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Payment_Updater">
+                </mat-form-field>
+            </div>
+            <div  flex fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around"
+                appearance="none" class="required">
+                <label class="General_label" fxFlex="30" fxLayoutAlign="end center"
+                    fxLayoutAlign.lt-sm="start center">Update DateTime</label>
+                <mat-form-field fxFlex="65" fxLayoutAlign="start start" appearance="outline" color="accent"
+                    floatLabel="always">
+                    <input matInput formControlName="Payment_Update_DateTime">
+                </mat-form-field>
+            </div>
+        </div>
+        <div flex fxLayout="row" fxLayoutAlign="space-between center">
+            <button class="btn btn-primary put_margin_not_auto"
+                (click)="edit(service.formGroup_payment)">Edit Payment</button>
+            <button class="btn btn-secondary put_margin_not_auto" (click)="cancel()">Cancel</button>
+        </div>
+    </form>
+</div>
